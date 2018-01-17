@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Portfolio website</title>
+	<meta charset="utf-8">
+
+</head>
+<body>
+<!--Header thingies go here-->
+	<header>
+		<div class="logo">Eulabeia</div>
+		<ul>
+			<li>HOME</li>
+			<li>ABOUT</li>
+			<li>SERVICES</li>
+			<li>CONTACT</li>
+		</ul>
+	</header>
+<!--Banner thingies go here-->
+	<banner class="banner">
+		<div>
+			<h1>TITLE</h1>
+			<img src="">
+			<img src="">
+			<img src="">
+			<img src="">
+		</div>
+	</banner>
+<!--portfolio containers go here-->
+	<container class="container-main">
+		<div class="container-1">
+			<img src="">
+			<h3>Image discription</h3>
+		</div>
+		<div class="container-2">
+			<img src="">
+			<h3>Image discription</h3>
+		</div>
+		<div class="container-3">
+			<img src="">
+			<h3>Image discription</h3>
+		</div>
+		<div class="container-4">
+			<img src="">
+			<h3>Image discription</h3>
+		</div>
+	</container>
+<!--contact form and contact information-->
+	<container class="container-form">
+		<div ></div>
+	</container>
+</body>
+</html>
