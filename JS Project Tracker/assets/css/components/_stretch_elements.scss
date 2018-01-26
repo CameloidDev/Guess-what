@@ -1,0 +1,33 @@
+// Stretch horizontally to match parent's width
+
+[data-stretch=X] {
+	width: 100% !important;
+    width: -moz-available !important;
+    width: -webkit-fill-available !important;
+    //justify-self: stretch !important;
+}
+
+// Stretch vertically to match parent's height
+
+[data-stretch=Y] {
+	height: 100% !important;
+    height: -moz-available !important;
+    height: -webkit-fill-available !important;
+    //align-self: stretch !important;
+}
+
+// Stretch both axis to match parent's width and height
+
+[data-stretch=XY] {
+	width: 100% !important;
+    width: -moz-available !important;
+    width: -webkit-fill-available !important;
+	height: 100% !important;
+    height: -moz-available !important;
+    height: -webkit-fill-available !important;
+    //align-self: stretch !important;
+    //justify-self: stretch !important;
+}
+
+
+

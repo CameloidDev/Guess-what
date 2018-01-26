@@ -1,0 +1,29 @@
+// Scroll horizontally, hide the vertical overflow
+
+[data-scroll=X] {
+	overflow-x: auto !important;
+	overflow-y: hidden !important;
+}
+
+// Scroll vertically, hide the horizontal overflow
+
+[data-scroll=Y] {
+	overflow-x: hidden !important;
+	overflow-y: auto !important;
+}
+
+// Scroll both horizontally and vertically
+
+[data-scroll=XY] {
+	overflow-x: auto !important;
+	overflow-y: auto !important;
+}
+
+// hide both horizontal and vertical overflow
+
+[data-scroll=none] {
+	overflow: hidden;
+}
+
+
+

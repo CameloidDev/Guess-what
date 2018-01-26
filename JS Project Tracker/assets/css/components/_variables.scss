@@ -1,0 +1,85 @@
+/*
+	These are the most common variables that
+	will be used all over the linked scss files.
+
+	Table of contents:
+
+	1. Fonts
+	2. Colors
+	3. Media query setup
+
+*/
+
+// 1. Fonts
+
+@font-face {
+    font-family: "Lato Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../../media/fonts/lato/Lato-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Lato Regular";
+    font-style: italic;
+    font-weight: normal;
+    src: url("../../media/fonts/lato/Lato-Italic.ttf") format("truetype");
+}
+
+$text-font: "Lato Regular", sans-serif;
+
+@font-face {
+    font-family: "Sinkin Sans 400";
+    font-style: normal;
+    font-weight: normal;
+    src: url("../../media/fonts/sinkin-sans/SinkinSans-400Regular.otf") format("otf");
+}
+
+@font-face {
+    font-family: "Sinkin Sans 400";
+    font-style: italic;
+    font-weight: normal;
+    src: url("../../media/fonts/sinkin-sans/SinkinSans-400Italic.otf") format("otf");
+}
+
+$display-font: "Sinkin Sans 400", sans-serif;
+
+// 2. Colors
+
+// light-theme
+
+$light-darkest: #666;
+$light-dark: #999;
+$light-neutral: #ccc;
+$light-light: #e5e5e5;
+$light-lightest: #fefefe;
+
+$light-text: $light-darkest;
+
+$light-priority-1: #f8c30f;
+$light-priority-low: $light-priority-1;
+$light-priority-2: #f77f10;
+$light-priority-medium: $light-priority-2;
+$light-priority-3: #c91109;
+$light-priority-high: $light-priority-3;
+
+// 3. Media query setup
+
+$small-screen-up: 601px !default;
+$medium-screen-up: 993px !default;
+$large-screen-up: 1201px !default;
+$small-screen: 600px !default;
+$medium-screen: 992px !default;
+$large-screen: 1200px !default;
+
+$medium-and-up: "only screen and (min-width : #{$small-screen-up})" !default;
+$large-and-up: "only screen and (min-width : #{$medium-screen-up})" !default;
+$extra-large-and-up: "only screen and (min-width : #{$large-screen-up})" !default;
+$small-and-down: "only screen and (max-width : #{$small-screen})" !default;
+$medium-and-down: "only screen and (max-width : #{$medium-screen})" !default;
+$medium-only: "only screen and (min-width : #{$small-screen-up}) and (max-width : #{$medium-screen})" !default;
+
+
+
+
+

@@ -1,0 +1,12 @@
+
+
+// construct object
+parentElement = Object.assign(parentElement, htmlBuilder.parts.object(
+/*	tag				*/	"",
+/*	class			*/	"",
+/*	id				*/	"",
+/*	attributes		*/	["attribut=\"attribute content\""],
+/*	children		*/	{},
+/*	beforeContent	*/	"",
+/*	afterContent	*/	""
+));

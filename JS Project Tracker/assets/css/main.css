@@ -1,0 +1,444 @@
+/*
+	Contains all the main (s)css components.
+
+	Use only to link to other scss stylesheets
+	and scss functions and variables.
+	
+
+	- DO NOT use to define styles here -
+
+
+	Table of contents:
+
+		1. "Clean slate" settings
+		2. General variables and base parts
+		3. Style settings
+		4. Page specific adjustments
+		5. Wrongly placed accidentally on purpose
+*/
+/*
+	This is a collection of common mixins.
+	It is here to allow easy cross-browser
+	compatibility and speed up the writing
+	of classes.
+*/
+/*
+	These are the main color variables.
+
+	Some are commonly used all over,
+	other are user defined for quick access.
+*/
+/*
+	These are the most common variables that
+	will be used all over the linked scss files.
+
+	Table of contents:
+
+	1. Fonts
+	2. Colors
+	3. Media query setup
+
+*/
+@font-face {
+  font-family: "Lato Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../media/fonts/lato/Lato-Regular.ttf") format("truetype"); }
+@font-face {
+  font-family: "Lato Regular";
+  font-style: italic;
+  font-weight: normal;
+  src: url("../../media/fonts/lato/Lato-Italic.ttf") format("truetype"); }
+@font-face {
+  font-family: "Sinkin Sans 400";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../../media/fonts/sinkin-sans/SinkinSans-400Regular.otf") format("otf"); }
+@font-face {
+  font-family: "Sinkin Sans 400";
+  font-style: italic;
+  font-weight: normal;
+  src: url("../../media/fonts/sinkin-sans/SinkinSans-400Italic.otf") format("otf"); }
+[data-stretch=X] {
+  width: 100% !important;
+  width: -moz-available !important;
+  width: -webkit-fill-available !important; }
+
+[data-stretch=Y] {
+  height: 100% !important;
+  height: -moz-available !important;
+  height: -webkit-fill-available !important; }
+
+[data-stretch=XY] {
+  width: 100% !important;
+  width: -moz-available !important;
+  width: -webkit-fill-available !important;
+  height: 100% !important;
+  height: -moz-available !important;
+  height: -webkit-fill-available !important; }
+
+[data-scroll=X] {
+  overflow-x: auto !important;
+  overflow-y: hidden !important; }
+
+[data-scroll=Y] {
+  overflow-x: hidden !important;
+  overflow-y: auto !important; }
+
+[data-scroll=XY] {
+  overflow-x: auto !important;
+  overflow-y: auto !important; }
+
+[data-scroll=none] {
+  overflow: hidden; }
+
+/*
+	Table of contents>
+
+	1. Absolute elements
+		1.1 Center on the parent element
+		1.2 Inside the parent element
+			1.2.1 Touching the parent side's center
+			1.2.2 Corner-to-corner with the parent element
+		1.3 Outside the parent element
+			1.3.1 Touching the parent side's center
+			1.3.2 Touching the parent side's corner
+			1.3.3 Corner-to-corner with the parent element
+	2. Grid item elements
+		2.1 Center on the parent element
+		2.2 Touching the parent side
+		2.3 Corner-to-corner with the parent element
+*/
+/*
+	Change position to absolute for elements
+	containing the data-align attribute
+	whose value begins with "abs-".
+*/
+[data-align^="abs-"] {
+  position: absolute !important; }
+
+[data-align=abs-center] {
+  right: 50% !important;
+  bottom: 50% !important;
+  transform: translateX(50%) translateY(50%) !important; }
+
+[data-align=abs-inside-N] {
+  top: 0 !important;
+  right: 50% !important;
+  transform: translateX(50%) !important; }
+
+[data-align=abs-inside-S] {
+  bottom: 0 !important;
+  right: 50% !important;
+  transform: translateX(50%) !important; }
+
+[data-align=abs-inside-E] {
+  right: 0 !important;
+  bottom: 50% !important;
+  transform: translateY(50%) !important; }
+
+[data-align=abs-inside-W] {
+  left: 0 !important;
+  bottom: 50% !important;
+  transform: translateY(50%) !important; }
+
+[data-align=abs-inside-NE] {
+  right: 0 !important;
+  top: 0 !important; }
+
+[data-align=abs-inside-top-NW] {
+  left: 0 !important;
+  top: 0 !important; }
+
+[data-align=abs-inside-SE] {
+  right: 0 !important;
+  bottom: 0 !important; }
+
+[data-align=abs-inside-SW] {
+  left: 0 !important;
+  bottom: 0 !important; }
+
+[data-align=abs-outside-N] {
+  right: 50% !important;
+  top: 0 !important;
+  transform: translateX(50%) translateY(-100%) !important; }
+
+[data-align=abs-outside-S] {
+  right: 50% !important;
+  bottom: 0 !important;
+  transform: translateX(50%) translateY(100%) !important; }
+
+[data-align=abs-outside-E] {
+  left: 100% !important;
+  bottom: 50% !important;
+  transform: translateY(50%) !important; }
+
+[data-align=abs-outside-W] {
+  left: 0 !important;
+  bottom: 50% !important;
+  transform: translateX(-100%) translateY(50%) !important; }
+
+[data-align=abs-outside-Nright] {
+  right: 0 !important;
+  top: 0 !important;
+  transform: translateY(-100%) !important; }
+
+[data-align=abs-outside-Nleft] {
+  left: 0 !important;
+  top: 0 !important;
+  transform: translateY(-100%) !important; }
+
+[data-align=abs-outside-Sright] {
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: translateY(100%) !important; }
+
+[data-align=abs-outside-Sleft] {
+  left: 0 !important;
+  bottom: 0 !important;
+  transform: translateY(100%) !important; }
+
+[data-align=abs-outside-Etop] {
+  left: 100% !important;
+  top: 0 !important; }
+
+[data-align=abs-outside-Ebottom] {
+  left: 100% !important;
+  bottom: 0 !important; }
+
+[data-align=abs-outside-Wtop] {
+  left: 0 !important;
+  top: 0 !important;
+  transform: translateX(-100%) !important; }
+
+[data-align=abs-outside-Wbottom] {
+  left: 0 !important;
+  bottom: 0 !important;
+  transform: translateX(-100%) !important; }
+
+[data-align=abs-outside-NE] {
+  right: 0 !important;
+  top: 0 !important;
+  transform: translateX(100%) translateY(-100%) !important; }
+
+[data-align=abs-outside-NW] {
+  left: 0 !important;
+  top: 0 !important;
+  transform: translateX(-100%) translateY(-100%) !important; }
+
+[data-align=abs-outside-SE] {
+  right: 0 !important;
+  bottom: 0 !important;
+  transform: translateX(100%) translateY(100%) !important; }
+
+[data-align=abs-outside-SW] {
+  left: 0 !important;
+  bottom: 0 !important;
+  transform: translateX(-100%) translateY(100%) !important; }
+
+[data-align=center] {
+  justify-self: center !important;
+  align-self: center !important; }
+
+[data-align=N] {
+  align-self: start !important;
+  justify-self: center !important; }
+
+[data-align=S] {
+  align-self: end !important;
+  justify-self: center !important; }
+
+[data-align=E] {
+  align-self: center !important;
+  justify-self: end !important; }
+
+[data-align=W] {
+  align-self: center !important;
+  justify-self: start !important; }
+
+[data-align=NE] {
+  align-self: start !important;
+  justify-self: end !important; }
+
+[data-align=NW] {
+  align-self: start !important;
+  justify-self: start !important; }
+
+[data-align=SE] {
+  align-self: end !important;
+  justify-self: end !important; }
+
+[data-align=SW] {
+  align-self: end !important;
+  justify-self: start !important; }
+
+html {
+  width: 100%;
+  background-color: #e5e5e5;
+  color: #666;
+  font-family: "Lato Regular", sans-serif;
+  font-size: 12px;
+  line-height: 12px; }
+
+body {
+  margin: 0; }
+
+div, body, .flex, .page-container, .page-container > header, .page-container > footer, .grid, window, window > .window-content, button, button:hover, button:active, button:focus, input, input:hover, input:active, input:focus, window > .window-title {
+  box-sizing: border-box;
+  position: relative; }
+
+.flex, .page-container, .page-container > header, .page-container > footer {
+  display: flex; }
+
+.grid, window, window > .window-content {
+  display: grid; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: "Sinkin Sans 400", sans-serif; }
+
+h1 {
+  font-size: 36px;
+  line-height: 36px; }
+
+h2 {
+  font-size: 18px;
+  line-height: 18px; }
+
+h3 {
+  font-size: 14px;
+  line-height: 14px; }
+
+h4 {
+  font-size: 12px;
+  line-height: 12px; }
+
+h5 {
+  font-size: 10px;
+  line-height: 10px; }
+
+h6 {
+  font-size: 8px;
+  line-height: 8px; }
+
+small {
+  font-family: "Lato Regular", sans-serif;
+  font-size: .75em;
+  color: #666; }
+
+tiny {
+  font-family: "Lato Regular", sans-serif;
+  font-size: .5em;
+  color: #666; }
+
+button, button:hover, button:active, button:focus {
+  padding: .5em 1.2em;
+  width: fit-content;
+  background-color: #ccc;
+  color: #666;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  font-family: "Lato Regular", sans-serif; }
+button:hover {
+  background-color: #999;
+  color: #fefefe; }
+button:active {
+  background-color: #666;
+  color: #fefefe; }
+
+input, input:hover, input:active, input:focus {
+  padding: .3em .5em;
+  width: fit-content;
+  background-color: #ccc;
+  color: #666;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  font-family: "Sinkin Sans 400", sans-serif; }
+input:focus, input:active {
+  background-color: #666;
+  color: #fefefe; }
+  input:focus::placeholder, input:active::placeholder {
+    color: #ccc; }
+input:not(:focus):not(active):hover {
+  background-color: #999;
+  color: #fefefe; }
+  input:not(:focus):not(active):hover::placeholder {
+    color: #ccc; }
+input::placeholder {
+  color: #999;
+  font-family: "Lato Regular", sans-serif;
+  font-style: italic; }
+input[type=checkbox], input[type=radio] {
+  display: none; }
+  input[type=checkbox]:checked + label:after, input[type=radio]:checked + label:after {
+    display: block;
+    width: 7px;
+    height: 7px;
+    transform: translate(-21px, -9px);
+    background-color: #666; }
+
+label[type=checkbox],
+label[type=radio] {
+  position: relative;
+  padding-left: 25px; }
+  label[type=checkbox]:before, label[type=checkbox]:after,
+  label[type=radio]:before,
+  label[type=radio]:after {
+    display: block;
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    transform: translate(-25px, -1px);
+    content: "";
+    background-color: #ccc; }
+  label[type=checkbox]:hover:before,
+  label[type=radio]:hover:before {
+    background-color: #999; }
+  label[type=checkbox]:after,
+  label[type=radio]:after {
+    display: none; }
+
+.page-container {
+  min-width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center; }
+  .page-container > * {
+    margin: 10px; }
+  .page-container > header, .page-container > footer {
+    justify-content: center; }
+
+window {
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.05); }
+  window > .window-title {
+    padding: 10px;
+    height: 30px;
+    background-color: #999;
+    color: #fefefe; }
+  window > .window-content {
+    padding: 20px;
+    width: 100%;
+    height: auto;
+    grid-gap: 10px;
+    background-color: #fefefe; }
+
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+#login {
+  align-self: center; }
+  #login > .window-content {
+    flex-direction: column; }
+    #login > .window-content > * {
+      margin: 0 auto; }
+    #login > .window-content > label {
+      margin: 10px auto; }
+    #login > .window-content > input[name=username] {
+      width: 250px; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,133 @@
+/*
+	These are the main color variables.
+
+	Some are commonly used all over,
+	other are user defined for quick access.
+*/
+
+// monochrome
+
+$black: black;
+$black-10: rgba(0,0,0,.1);
+$black-20: rgba(0,0,0,.2);
+$black-30: rgba(0,0,0,.3);
+$black-50: rgba(0,0,0,.5);
+$black-75: rgba(0,0,0,.75);
+
+$white: white;
+$white-10: rgba(255,255,255,.1);
+$white-20: rgba(255,255,255,.2);
+$white-30: rgba(255,255,255,.3);
+$white-50: rgba(255,255,255,.5);
+$white-75: rgba(255,255,255,.75);
+
+$grey: rgb(127,127,127);
+$grey-10: rgba(127,127,127,.1);
+$grey-20: rgba(127,127,127,.2);
+$grey-30: rgba(127,127,127,.3);
+$grey-50: rgba(127,127,127,.5);
+$grey-75: rgba(127,127,127,.75);
+
+$lightGrey: rgb(220,220,220);
+$lightGrey-10: rgba(220,220,220,.1);
+$lightGrey-20: rgba(220,220,220,.2);
+$lightGrey-30: rgba(220,220,220,.3);
+$lightGrey-50: rgba(220,220,220,.5);
+$lightGrey-75: rgba(220,220,220,.75);
+
+$darkGrey: rgb(50,50,50);
+$darkGrey-10: rgba(50,50,50,.1);
+$darkGrey-20: rgba(50,50,50,.2);
+$darkGrey-30: rgba(50,50,50,.3);
+$darkGrey-50: rgba(50,50,50,.5);
+$darkGrey-75: rgba(50,50,50,.75);
+
+// primary
+
+$red: red;
+$red-10: rgba(255,0,0,.1);
+$red-20: rgba(255,0,0,.2);
+$red-30: rgba(255,0,0,.3);
+$red-50: rgba(255,0,0,.5);
+$red-75: rgba(255,0,0,.75);
+
+$green: green;
+$green-10: rgba(0,255,0,.1);
+$green-20: rgba(0,255,0,.2);
+$green-30: rgba(0,255,0,.3);
+$green-50: rgba(0,255,0,.5);
+$green-75: rgba(0,255,0,.75);
+
+$blue: blue;
+$blue-10: rgba(0,0,255,.1);
+$blue-20: rgba(0,0,255,.2);
+$blue-30: rgba(0,0,255,.3);
+$blue-50: rgba(0,0,255,.5);
+$blue-75: rgba(0,0,255,.75);
+
+// secondary
+
+$yellow: yellow;
+$yellow-10: rgba(255,255,0,.1);
+$yellow-20: rgba(255,255,0,.2);
+$yellow-30: rgba(255,255,0,.3);
+$yellow-50: rgba(255,255,0,.5);
+$yellow-75: rgba(255,255,0,.75);
+
+$cyan: rgb(0,255,255);
+$cyan-10: rgba(0,255,255,.1);
+$cyan-20: rgba(0,255,255,.2);
+$cyan-30: rgba(0,255,255,.3);
+$cyan-50: rgba(0,255,255,.5);
+$cyan-75: rgba(0,255,255,.75);
+
+$magenta: rgb(255,0,255);
+$magenta-10: rgba(255,0,255,.1);
+$magenta-20: rgba(255,0,255,.2);
+$magenta-30: rgba(255,0,255,.3);
+$magenta-50: rgba(255,0,255,.5);
+$magenta-75: rgba(255,0,255,.75);
+
+// tertiary
+
+$neonGreen: rgb(127,255,0);
+$neonGreen-10: rgba(127,255,0,.1);
+$neonGreen-20: rgba(127,255,0,.2);
+$neonGreen-30: rgba(127,255,0,.3);
+$neonGreen-50: rgba(127,255,0,.5);
+$neonGreen-75: rgba(127,255,0,.75);
+
+$orange: rgb(255,127,0);
+$orange-10: rgba(255,127,0,.1);
+$orange-20: rgba(255,127,0,.2);
+$orange-30: rgba(255,127,0,.3);
+$orange-50: rgba(255,127,0,.5);
+$orange-75: rgba(255,127,0,.75);
+
+$lightBlue: rgb(0,127,255);
+$lightBlue-10: rgba(0,127,255,.1);
+$lightBlue-20: rgba(0,127,255,.2);
+$lightBlue-30: rgba(0,127,255,.3);
+$lightBlue-50: rgba(0,127,255,.5);
+$lightBlue-75: rgba(0,127,255,.75);
+
+$lightGreen: rgb(0,255,127);
+$lightGreen-10: rgba(0,255,127,.1);
+$lightGreen-20: rgba(0,255,127,.2);
+$lightGreen-30: rgba(0,255,127,.3);
+$lightGreen-50: rgba(0,255,127,.5);
+$lightGreen-75: rgba(0,255,127,.75);
+
+$purple: rgb(127,0,255);
+$purple-10: rgba(127,0,255,.1);
+$purple-20: rgba(127,0,255,.2);
+$purple-30: rgba(127,0,255,.3);
+$purple-50: rgba(127,0,255,.5);
+$purple-75: rgba(127,0,255,.75);
+
+$deepPink: rgb(255,0,127);
+$deepPink-10: rgba(255,0,127,.1);
+$deepPink-20: rgba(255,0,127,.2);
+$deepPink-30: rgba(255,0,127,.3);
+$deepPink-50: rgba(255,0,127,.5);
+$deepPink-75: rgba(255,0,127,.75);

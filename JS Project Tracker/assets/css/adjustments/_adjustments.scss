@@ -1,0 +1,267 @@
+html {
+	//position: relative;
+	//box-sizing: border-box;
+	width: 100%;
+
+	background-color: $light-light;
+	color: $light-text;
+	font-family: $text-font;
+	font-size: 12px;
+	line-height: 12px;
+}
+
+body {
+	@extend div;
+
+	margin: 0;
+}
+
+div {
+	box-sizing: border-box;
+	position: relative;
+}
+
+.flex {
+	@extend div;
+
+	display: flex;
+}
+
+.grid {
+	@extend div;
+
+	display: grid;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+
+	font-family: $display-font;
+}
+h1 {
+	font-size: 36px;
+	line-height: 36px;
+}
+h2 {
+	font-size: 18px;
+	line-height: 18px;
+}
+h3 {
+	font-size: 14px;
+	line-height: 14px;
+}
+h4 {
+	font-size: 12px;
+	line-height: 12px;
+}
+h5 {
+	font-size: 10px;
+	line-height: 10px;
+}
+h6 {
+	font-size: 8px;
+	line-height: 8px;
+}
+
+small {
+	font-family: $text-font;
+	font-size: .75em;
+
+	color: $light-text;
+}
+
+tiny {
+	font-family: $text-font;
+	font-size: .5em;
+
+	color: $light-text;
+}
+
+button, input {
+	&, &:hover, &:active, &:focus {
+		@extend div;
+	}
+}
+
+button {
+	&, &:hover, &:active, &:focus {
+		@extend div;
+
+		padding: .5em 1.2em;
+		width: fit-content;
+
+		background-color: $light-neutral;
+		color: $light-text;
+		border: none;
+		border-radius: 0;
+		outline: none;
+		font-family: $text-font;
+	}
+
+	&:hover {
+		background-color: $light-dark;
+		color: $light-lightest; 
+	}
+
+	&:active {
+		background-color: $light-darkest;
+		color: $light-lightest; 
+	}
+}
+
+input {
+	&, &:hover, &:active, &:focus {
+		@extend div;
+
+		padding: .3em .5em;
+		width: fit-content;
+
+		background-color: $light-neutral;
+		color: $light-text;
+		border: none;
+		border-radius: 0;
+		outline: none;
+		font-family: $display-font;
+	}
+
+	&:focus, &:active {
+		background-color: $light-darkest;
+		color: $light-lightest;
+		&::placeholder {
+			color: $light-neutral;
+		}
+	}
+
+	&:not(:focus):not(active):hover{
+		background-color: $light-dark;
+		color: $light-lightest;
+		&::placeholder {
+			color: $light-neutral;
+		}
+	}
+
+	&::placeholder {
+		color: $light-dark;
+		font-family: $text-font;
+		font-style: italic;
+	}
+	&[type=checkbox],
+	&[type=radio] {
+		display: none;
+		&:checked + label:after {
+			display: block;
+			width: 7px;
+			height: 7px;
+			transform: translate(-21px, -9px);
+
+			background-color: $light-darkest;
+		}
+	}
+}
+
+label[type=checkbox], 
+label[type=radio] {
+	position: relative;
+	padding-left: 25px;
+
+	&:before, &:after {
+		display: block;
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		transform: translate(-25px, -1px);
+
+		content: "";
+		background-color: $light-neutral;
+	}
+
+	&:hover:before {
+		background-color: $light-dark;
+	}
+
+	&:after {
+		display: none;
+	}
+}
+
+
+
+// component styles
+
+.page-container {
+	@extend .flex;
+
+	min-width: 100%;
+	min-height: 100vh;
+	flex-direction: column;
+	justify-content: center;
+	& > * {
+		margin: 10px;
+	}
+	& > header, & > footer {
+		@extend .flex;
+
+		justify-content: center;
+	}
+}
+
+window {
+	@extend .grid;
+
+	box-shadow: 0px 2px 5px 2px rgba(0,0,0,.05);
+
+	& > .window-title {
+		@extend div;
+
+		padding: 10px;
+		//width: 100%;
+		height: 30px;
+
+		background-color: $light-dark;
+		color: $light-lightest;
+	}
+
+	& > .window-content {
+		@extend .grid;
+
+		padding: 20px;
+		width: 100%;
+		height: auto;
+		grid-gap: 10px;
+
+		background-color: $light-lightest;
+	}
+}
+
+.popup {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+
+	background-color: $black-50;
+}
+
+.container-stack {
+	
+}
+
+// special component styles
+
+#login {
+	align-self: center;
+	& > .window-content {
+		flex-direction: column;
+		
+		& > * {
+			margin: 0 auto;
+		}
+
+		& > label {
+			margin: 10px auto;
+		}
+
+		& > input[name=username] {
+			width: 250px;
+		}
+	}
+}

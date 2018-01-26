@@ -1,0 +1,46 @@
+/*
+	Contains all the main (s)css components.
+
+	Use only to link to other scss stylesheets
+	and scss functions and variables.
+	
+
+	- DO NOT use to define styles here -
+
+
+	Table of contents:
+
+		1. "Clean slate" settings
+		2. General variables and base parts
+		3. Style settings
+		4. Page specific adjustments
+		5. Wrongly placed accidentally on purpose
+*/
+
+
+
+
+// 1. "Clean slate" settings
+
+@charset "UTF-8";
+
+// 2. General variables and base parts
+
+@import "components/common_mixins";
+
+@import "components/colors";
+
+@import "components/variables";
+
+@import "components/stretch_elements";
+
+@import "components/scrolling";
+
+@import "components/alignment";
+
+// 3. Style settings
+
+// 4. Page specific adjustments
+
+@import "adjustments/adjustments";
+

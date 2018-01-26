@@ -1,0 +1,58 @@
+/*
+	This is a collection of common mixins.
+	It is here to allow easy cross-browser
+	compatibility and speed up the writing
+	of classes.
+*/
+
+@mixin border ($width: 1px, $color: black) {
+	-webkit-border: solid $width $color;
+	-moz-border: solid $width $color;
+	-ms-border: solid $width $color;
+	border: solid $width $color;
+}
+
+@mixin dot-border ($width: 1px, $color: black) {
+	-webkit-border: dotted $width $color;
+	-moz-border: dotted $width $color;
+	-ms-border: dotted $width $color;
+	border: dotted $width $color;
+}
+
+@mixin dash-border ($width: 1px, $color: black) {
+	-webkit-border: dashed $width $color;
+	-moz-border: dashed $width $color;
+	-ms-border: dashed $width $color;
+	border: dashed $width $color;
+}
+
+@mixin double-border ($width: 1px, $color: black) {
+	-webkit-border: double $width $color;
+	-moz-border: double $width $color;
+	-ms-border: double $width $color;
+	border: double $width $color;
+}
+
+@mixin border-radius ($radius: 3px) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin shadow ($distance: 4px, $size: 8px, $color: black) {
+	box-shadow: 0 $distance $size $size/6 $color;
+}
+
+@mixin shadow-inset ($distance: 4px, $size: 8px, $color: black) {
+	box-shadow: 0 $distance $size $size/6 $color inset;
+}
+
+@mixin glow ($color: teal) {
+	box-shadow: 0 0 5px 5px $color;
+}
+
+@mixin glow-inset ($color: teal) {
+	box-shadow: 0 0 5px 5px $color inset;
+}
+

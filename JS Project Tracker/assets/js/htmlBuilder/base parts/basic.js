@@ -281,13 +281,13 @@ htmlBuilder.parts.pageSkeleton = function (
 	"<!DOCTYPE html>"+
 	"\n<html>"+
 	"\n\t<head>"+
-			"\n\t\t<meta charset=\"UTF-8\"></meta>"+
-			"\n\t\t<meta name=\"description\" content=\""+description+"\"></meta>"+
-			"\n\t\t<meta name=\"version\" content=\""+version+"\"></meta>"+
-			"\n\t\t<meta name=\"keywords\" content=\""+keywords+"\"></meta>"+
-			"\n\t\t<meta name=\"author\" content=\""+author+"\"></meta>"+
-			"\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"></meta>"+
-			"\n\t\t<meta rel=\"stylesheet\" type=\"text/css\" href=\""+stylesheetPath+"\"></meta>"+
+			"\n\t\t<meta charset=\"UTF-8\">"+
+			"\n\t\t<meta name=\"description\" content=\""+description+"\">"+
+			"\n\t\t<meta name=\"version\" content=\""+version+"\">"+
+			"\n\t\t<meta name=\"keywords\" content=\""+keywords+"\">"+
+			"\n\t\t<meta name=\"author\" content=\""+author+"\">"+
+			"\n\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"+
+			"\n\t\t<link rel=\"stylesheet\" type=\"text/css\" href=\""+stylesheetPath+"\">"+
 			"\n\t\t<title>"+
 			"\n\t\t\t"+title+
 			"\n\t\t</title>"+

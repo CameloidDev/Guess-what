@@ -1,0 +1,138 @@
+/*html {
+	font-family: 'Comfortaa', cursive;
+	font-weight: 400;
+	color: #222;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 700;
+}
+
+.page {
+	position: relative;
+	right: 0;
+	left: 0;
+	margin: auto;
+	max-width: 600px;
+	display: grid;
+	grid-gap: .5em;
+}
+
+.container-title h1 {
+	font-size: 48px;
+	text-align: center;
+	margin: 1rem 0 0 0;
+}
+
+.container-title small {
+	color: grey;
+	font-size: 24px;
+	font-weight: 300;
+	text-align: center;
+}*/
+
+.container-title, .container-primary, .container-secondary {
+	margin: 0;
+}
+
+.container-primary {
+	background-color: #e8eee8;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.container-primary *, .container-secondary * {
+	margin: .2em 0em;
+}
+
+.container-secondary {
+	border: solid;
+	border-width: 1px;
+	border-radius: 5px;
+	border-color: rgba(0,0,0,.2);
+	padding: 10px;
+}
+
+.form-group {
+	display: grid;
+	grid-auto-rows: auto;
+}
+
+input, select, button {
+	padding: .5em;
+	border: solid;
+	border-radius: 5px;
+	border-width: 1px;
+	border-color: rgba(0,0,0,.2);
+}
+
+input:focus, select:focus {
+	outline: none;
+	border-color: rgba(0,0,0,.4);
+}
+
+select {
+	cursor: pointer;
+}
+
+button {
+	text-decoration: none;
+	cursor: pointer;
+	background-color: white;
+}
+
+a, a:link, a:active, a:hover, a:visited {
+	text-decoration: none;
+	padding: 0px;
+	margin: 0px;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.btn-primary {
+	margin: .5em;
+	padding: .5em 1em !important;
+	border-width: 0;
+	padding: .5em 1em .5em 1em;
+	border-radius: 5px;
+	text-decoration: none;
+	cursor: pointer;
+	color: white;
+	background-color: #6af;
+}
+
+.btn-warning {
+	margin: .5em;
+	padding: .5em 1em !important;
+	border-width: 0;
+	padding: .5em 1em .5em 1em;
+	border-radius: 5px;
+	text-decoration: none;
+	cursor: pointer;
+	color: white;
+	background-color: #fa0;
+}
+
+.btn-danger {
+	margin: .5em;
+	padding: .5em 1em !important;
+	border-width: 0;
+	padding: .5em 1em .5em 1em;
+	border-radius: 5px;
+	text-decoration: none;
+	cursor: pointer;
+	color: white;
+	background-color: #f40;
+}
+
+.horizontal-grid {
+	display: grid;
+	grid-auto-columns: auto;
+}
+
+.horizontal-grid * {
+	grid-row: 1;
+	width: auto;
+}
