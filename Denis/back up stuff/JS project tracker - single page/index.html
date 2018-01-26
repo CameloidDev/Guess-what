@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>login</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+<!--body onload="Page.OnLoad()"-->
+<body>
+
+	<div id="page">
+
+	</div>
+
+
+	<input type="text" placeholder="username" id="username" autofocus required>
+	<label>register as a new user</label>
+	<input type="checkbox" id="registerNewUser">
+	<button onclick="Page.Login();">proceed</button>
+
+
+
+	<!-- jquery library -->
+	<script type="text/javascript" src="assets/js/jquery/jquery.js"></script>
+	
+	<!-- classes and standalone parts and dependencies -->
+	<script type="text/javascript" src="assets/js/storage.js"></script>
+	<script type="text/javascript" src="assets/js/userSystem.js"></script>
+
+	<!-- app functionality -->
+	<script type="text/javascript" src="assets/js/app.js"></script>
+	
+	<!-- page-specific functionality -->
+	<script type="text/javascript" src="assets/js/pages/login.js"></script>
+
+</body>
+</html>

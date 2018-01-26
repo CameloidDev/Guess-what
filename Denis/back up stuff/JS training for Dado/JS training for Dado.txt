@@ -1,0 +1,17 @@
+
+- paper and post it
+- function sketch
+
+- writing a function
+- (D)on't (R)epeat (Y)ourself and maintainability
+
+- organization/categorization and scope
+- parts into classes
+	- functions into pages
+- classes into namespaces
+	- pages into app
+- prototype and constructor
+
+- events
+- custom events
+- subscribing to events

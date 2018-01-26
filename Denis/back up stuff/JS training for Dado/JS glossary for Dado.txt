@@ -1,0 +1,91 @@
+
+=================================================
+	Prepare yourself for some JavaScript-ing!
+=================================================
+
+----------------------
+		NOTES:
+----------------------
+	
+	- It is enough to read up on the concepts. You ___DO NOT___ have to memorize everything, know the syntax by heart or even try it out in practice
+
+	- Feel free to skip concepts you're already familiar with
+	
+		- you can probably skip almost the whole "basic concepts" section with the exception of "scope" at the end
+	
+	- Ignoring the "O P T I O N A L" fields, this list should take you no more than ___1h 30min___ in total
+
+		- it will probably take you far faaaaar less
+
+
+-------------------------
+		THE LIST:
+-------------------------
+
+______________
+basic concepts
+
+	- variables
+		- what are they
+
+		> types we'll be using
+			- number
+			- string
+			- array
+			- list
+
+	> conditionals
+		- what are they
+
+		> the meaning of
+			- >, <, ==, !=, >=, <=
+				  ___________________
+				- [ O P T I O N A L ] the difference between == and ===
+
+		> the structure/syntax of
+			- if
+			- switch
+
+	> loops
+		- what are they
+
+		> the structure/syntax of
+			- for
+			- while
+			- do while
+
+	> scope
+		- what is it
+		- local
+		- global
+
+
+
+___________________
+javascript specific
+
+	> javascript objects
+		- what are they
+
+		> object property
+			- what are they
+			- addressing object properties
+			- what does "this" keyword do
+			- how to create a new property
+		  ___________________
+		> [ O P T I O N A L ] what is an object prototype
+
+		> functions
+			- what are they
+			- passing in parameters
+			- returning a value
+
+		> what is a constructor
+
+		> events
+			- what are they
+			- event listeners
+				- what are they
+				- add a new listener
+			  ___________________
+			- [ O P T I O N A L ] create a custom event
