@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>htmlBuilder test</title>
 	<style type="text/css">
 		* {
@@ -230,8 +231,8 @@
 
 		var debugEnabled = false;
 
-		function setPageElement (element) {
-			page = element;
+		function setPageElement (showCode) {
+			page = document.getElementById("page");
 
 			var htmlBuilderBlueprintExample = {
 				0: { tag: "h1",
@@ -270,28 +271,51 @@
 							}
 						}
 					}
+				},
+				4: { tag: "label",
+					beforeContent: "Know what? I can call functions too!"
+				},
+				5: { tag: "button",
+					beforeContent: "Click me to show code",
+					attr: {
+						0: "onclick=\"setPageElement(true);\""
+					}
+				},
+				6: { tag: "p",
+					beforeContent: "The above button runs the setPageElement() function when clicked."
 				}
 			}
 
-			showHtml(htmlBuilderBlueprintExample);
+			showHtml(htmlBuilderBlueprintExample, showCode);
 		}
 
-		function showHtml (htmlBuilderBlueprint) {
+		function showHtml (htmlBuilderBlueprint, showCode) {
 			/*var builder = new htmlBuilder.Build(htmlBuilderBlueprint);
 			var result = builder.Html();
 			
 			debug(builder, result, "What showHtml() gets: ");
 			page.innerHTML = result;*/
 
-			//page.innerHTML = "<textarea id=\"outputArea\" style=\"width: 100%; height: calc(100vh - 10px);\"></textarea>";
-			//document.getElementById("outputArea").value = new htmlBuilder.Build(htmlBuilderBlueprint).Html();
-			page.innerHTML = new htmlBuilder.Build(htmlBuilderBlueprint).Html();
+			if (showCode) {
+				page.innerHTML = "<textarea id=\"outputArea\" style=\"width: 100%; height: calc(100vh - 10px);\"></textarea>";
+				document.getElementById("outputArea").value = new htmlBuilder.Build(htmlBuilderBlueprint).Html();
+			}
+			else
+				page.innerHTML = new htmlBuilder.Build(htmlBuilderBlueprint).Html();
+			
 			debug(null, page.innerHTML, "What showHtml() gets: ");
 		}
 	</script>
 
 
-	<div id="page" onload="setPageElement(this);"></div>
+	<div id="page">
+		<button onclick="setPageElement(false)">
+			show page
+		</button>
+		<button onclick="setPageElement(true)">
+			show code
+		</button>
+	</div>
 
 
 </body>
