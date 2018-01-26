@@ -59,6 +59,7 @@
 			var element = obj;
 			// assembled code
 			this.code = "";
+			this.level = -2;
 
 			// add the obj to a new object with a "children" property
 			// this is the version that traverseChildren() can read
@@ -87,10 +88,19 @@
 
 
 
+		htmlBuilder.Build.prototype.returnTabString = function (level) {
+			var t = "";
+			for (var i = 0; i < level; i++) {
+				t += "\t";
+			}
+			return t;
+		}
+
 		htmlBuilder.Build.prototype.traverseChildren = function (build, element, isRoot = false) {
 			var e = element;
 			var i = 0;
 			var code = "";
+			build.level++;
 
 			//debug(element, code, "Start traversing: ");
 
@@ -108,8 +118,10 @@
 					debug(null ,temp, "Passed code: ");
 					debug(null ,code + temp, "Joined code: ");
 				
+					code += i == 0 ? "" : "\n";
+
 					// recursion continues down to the last element
-					code += temp;
+					code += build.returnTabString(build.level) + temp;
 				}
 			}
 			if (!isRoot) {
@@ -120,6 +132,8 @@
 			debug(element, code, "End traversing: ");
 
 			build.code = code;
+
+			build.level--;
 
 			// send assembled code up the chain
 			return build;
@@ -143,7 +157,7 @@
 			var id = element["id"];
 
 			// open element
-			code += "<" + tag;
+			code += build.returnTabString(build.level) + "<" + tag;
 			// append class(es) if specified
 			if ( cls != undefined && cls != "" ) {
 				code += " class=\"" + cls + "\"";
@@ -161,19 +175,19 @@
 
 			// append beforeContent if specified
 			if ( element["beforeContent"] != undefined && element["beforeContent"] != "" ) {
-				code += element["beforeContent"];
+				code += "\n" + build.returnTabString(build.level + 1) + element["beforeContent"];
 			}
 
 			// append passed content
-			code += content;
+			code += content == "" ? "" : "\n" + content;
 
 			// append afterContent if specified
 			if ( element["afterContent"] != undefined && element["afterContent"] != "" ) {
-				code += element["afterContent"];
+				code += "\n" + build.returnTabString(build.level + 1) + element["afterContent"];
 			}
 
 			// close the element
-			code += "</" + tag + ">";
+			code += "\n" + build.returnTabString(build.level) + "</" + tag + ">";
 
 			// send assembled code up the chain
 			return code;
@@ -214,7 +228,7 @@
 		
 		var page;
 
-		var debugEnabled = true;
+		var debugEnabled = false;
 
 		function setPageElement (element) {
 			page = element;
@@ -269,6 +283,8 @@
 			debug(builder, result, "What showHtml() gets: ");
 			page.innerHTML = result;*/
 
+			//page.innerHTML = "<textarea id=\"outputArea\" style=\"width: 100%; height: calc(100vh - 10px);\"></textarea>";
+			//document.getElementById("outputArea").value = new htmlBuilder.Build(htmlBuilderBlueprint).Html();
 			page.innerHTML = new htmlBuilder.Build(htmlBuilderBlueprint).Html();
 			debug(null, page.innerHTML, "What showHtml() gets: ");
 		}
