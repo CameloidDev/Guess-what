@@ -28,7 +28,39 @@
 
 
 		<div class="page-container" id="pageContainer">
-
+			<header>
+				<h2 id="appTitle">JS Project Tracker</h2>
+				<h1 id="title">Profile</h1>
+			</header>
+			<div class="panel-stack" id="mainPanelStack">
+				<ul class="stack">
+					<li><button class="active" id="proflePanelButton">
+						Profile<i class="material-icons">person</i>
+					</button></li>
+					<li><button id="activityPanelButton">Project activity</button></li>
+					<li><button id="usersPanelButton">User list</button></li>
+					<li><button id="tasksPanelButton">Task list</button></li>
+				</ul>
+				<div class="panel" id="mainPanel">
+					<div class="invisible-container" id="profileContainer">
+						<div class="invisible-container">
+							<p>Role: Backend developer</p>
+							<p>Email: dadnimir.pecur@eulabeia.com</p>
+						</div>
+						<div class="invisible-container">
+							<h1>SillyMeWee</h1>
+							<button onclick="app.signOut()">Sign out</button>
+						</div>
+						<div class="invisible-container">
+							<p>Registration date: 13.1.2018</p>
+							<p>Last login: 13.1.2018</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<footer>
+				<span>Made by Eulabeia Web Studio 2018</span>
+			</footer>
 		</div>
 
 
@@ -54,7 +86,7 @@
 		<script type="text/javascript" src="assets/js/app/userProfile.js"></script-->
 		<script type="text/javascript" src="assets/js/app/dynamicBuilder.js"></script>
 
-		<script type="text/javascript" src="assets/js/main.js"></script>
+<!--	<script type="text/javascript" src="assets/js/main.js"></script-->
 		
 		<!-- IMPORTANT NOTES -->
 

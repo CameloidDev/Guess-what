@@ -21,13 +21,13 @@ div {
 	position: relative;
 }
 
-.flex {
+@mixin flex () {
 	@extend div;
 
 	display: flex;
 }
 
-.grid {
+@mixin grid () {
 	@extend div;
 
 	display: grid;
@@ -65,14 +65,8 @@ h6 {
 
 small {
 	font-family: $text-font;
-	font-size: .75em;
-
-	color: $light-text;
-}
-
-tiny {
-	font-family: $text-font;
-	font-size: .5em;
+	&:not(.tiny) { font-size: .75em; }
+	&.tiny { font-size: .5em; }
 
 	color: $light-text;
 }
@@ -184,37 +178,117 @@ label[type=radio] {
 	}
 }
 
+.material-icons {
+	font-size: inherit;
+
+	transform: translateY(.3ex);
+}
+
+button > .material-icons {
+	margin-left: 5px;
+}
+
 
 
 // component styles
 
+@mixin slight-shadow () {
+	box-shadow: 0px 2px 5px 2px rgba(0,0,0,.05);
+} 
+
+.invisible-container {
+	@include flex;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
 .page-container {
-	@extend .flex;
+	@include flex;
 
-	min-width: 100%;
-	min-height: 100vh;
+	width: 100%;
+	height: 100vh;
 	flex-direction: column;
-	justify-content: center;
-	& > * {
-		margin: 10px;
-	}
-	& > header, & > footer {
-		@extend .flex;
+}
 
-		justify-content: center;
+footer {
+	@include flex;
+
+	margin: 0 20px;
+	justify-content: center;
+	text-align: center;
+}
+
+header {
+	position: relative;
+
+	margin: 10px 20px -40px 20px;
+	& > #appTitle {
+		position: absolute;
+		top: 50%;
+
+		transform: translateY(-50%);
+	}
+
+	& > #title {
+		text-align: center;
 	}
 }
 
-window {
-	@extend .grid;
+.panel {
+	@include flex;
+	@include slight-shadow;
 
-	box-shadow: 0px 2px 5px 2px rgba(0,0,0,.05);
+	margin: 20px;
+	padding: 20px;
+	height: auto;
+	grid-gap: 10px;
+
+	background-color: $light-lightest;
+}
+
+.panel-stack {
+	margin: 20px;
+
+	& > ul {
+		@include flex;
+
+		list-style: none;
+		flex-direction: row-reverse;
+		padding: 0;
+		margin: 0;
+		z-index: 10;
+		
+		& > li {
+			margin: 0 2px;
+
+			&:first-child { margin-right: 0; }
+
+			& > button {
+				&.active {
+					&, &:hover, &:active, &:focus {
+						background-color: $light-lightest;
+						color: $light-text;
+					}
+				}
+			}
+		}
+	}
+	& > .panel {
+		margin: 0;
+	}
+}
+
+.window {
+	@include grid;
+	@include slight-shadow;
+
+	margin: 10px;
 
 	& > .window-title {
 		@extend div;
 
 		padding: 10px;
-		//width: 100%;
 		height: 30px;
 
 		background-color: $light-dark;
@@ -222,14 +296,10 @@ window {
 	}
 
 	& > .window-content {
-		@extend .grid;
+		@extend .panel;
 
-		padding: 20px;
-		width: 100%;
-		height: auto;
-		grid-gap: 10px;
-
-		background-color: $light-lightest;
+		margin: 0;
+		box-shadow: none;
 	}
 }
 
@@ -241,27 +311,80 @@ window {
 	background-color: $black-50;
 }
 
-.container-stack {
-	
-}
-
 // special component styles
 
-#login {
+#loginPageContainer {
+	flex-direction: column;
 	align-self: center;
+	top: 50%;
+	transform: translateY(calc(-50% - 5px));
+
+	header { margin-bottom: 0; }
+}
+
+#loginWindow {
+	align-self: center;
+	margin: 20px;
+
 	& > .window-content {
+		@include flex;
+
 		flex-direction: column;
+		justify-content: center;
 		
 		& > * {
 			margin: 0 auto;
-		}
-
-		& > label {
-			margin: 10px auto;
-		}
+			&:not(:first-child):not(:last-child) {
+				margin: 20px auto;
+			}
+		}	
 
 		& > input[name=username] {
 			width: 250px;
+		}
+	}
+}
+
+#mainPanelStack {
+	& > .stack {
+		& #proflePanelButton {
+			margin-left: 20px;
+		}
+	}
+}
+
+#profileContainer {
+	@include grid;
+
+	width: 100%;
+	grid-template-columns: 1fr 1fr 1fr;
+
+	& > .invisible-container {
+		flex-direction: column;
+
+		&:nth-child(1) {
+			justify-self: flex-start;
+		}
+
+		&:nth-child(2) {
+			justify-self: center;
+			text-align: center;
+			& > * {
+				margin-left: auto;
+				margin-right: auto;
+				margin-top: 10px;
+				
+				&:first-child {
+					padding-bottom: 10px;
+					margin-bottom: 10px;
+					border-bottom: 1px solid;
+				}
+			}
+		}
+
+		&:nth-child(3) {
+			justify-self: flex-end;
+			text-align: right;
 		}
 	}
 }

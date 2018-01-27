@@ -283,15 +283,9 @@ html {
 body {
   margin: 0; }
 
-div, body, .flex, .page-container, .page-container > header, .page-container > footer, .grid, window, window > .window-content, button, button:hover, button:active, button:focus, input, input:hover, input:active, input:focus, window > .window-title {
+div, body, button, button:hover, button:active, button:focus, input, input:hover, input:active, input:focus, .invisible-container, .page-container, footer, .panel, .window > .window-content, .panel-stack > ul, .window, .window > .window-title, #loginWindow > .window-content, #profileContainer {
   box-sizing: border-box;
   position: relative; }
-
-.flex, .page-container, .page-container > header, .page-container > footer {
-  display: flex; }
-
-.grid, window, window > .window-content {
-  display: grid; }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
@@ -323,13 +317,11 @@ h6 {
 
 small {
   font-family: "Lato Regular", sans-serif;
-  font-size: .75em;
   color: #666; }
-
-tiny {
-  font-family: "Lato Regular", sans-serif;
-  font-size: .5em;
-  color: #666; }
+  small:not(.tiny) {
+    font-size: .75em; }
+  small.tiny {
+    font-size: .5em; }
 
 button, button:hover, button:active, button:focus {
   padding: .5em 1.2em;
@@ -400,29 +392,81 @@ label[type=radio] {
   label[type=radio]:after {
     display: none; }
 
-.page-container {
-  min-width: 100%;
-  min-height: 100vh;
-  flex-direction: column;
-  justify-content: center; }
-  .page-container > * {
-    margin: 10px; }
-  .page-container > header, .page-container > footer {
-    justify-content: center; }
+.material-icons {
+  font-size: inherit;
+  transform: translateY(0.3ex); }
 
-window {
-  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.05); }
-  window > .window-title {
+button > .material-icons {
+  margin-left: 5px; }
+
+.invisible-container {
+  display: flex;
+  background-color: transparent;
+  border: none;
+  outline: none; }
+
+.page-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  flex-direction: column; }
+
+footer {
+  display: flex;
+  margin: 0 20px;
+  justify-content: center;
+  text-align: center; }
+
+header {
+  position: relative;
+  margin: 10px 20px -40px 20px; }
+  header > #appTitle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+  header > #title {
+    text-align: center; }
+
+.panel, .window > .window-content {
+  display: flex;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.05);
+  margin: 20px;
+  padding: 20px;
+  height: auto;
+  grid-gap: 10px;
+  background-color: #fefefe; }
+
+.panel-stack {
+  margin: 20px; }
+  .panel-stack > ul {
+    display: flex;
+    list-style: none;
+    flex-direction: row-reverse;
+    padding: 0;
+    margin: 0;
+    z-index: 10; }
+    .panel-stack > ul > li {
+      margin: 0 2px; }
+      .panel-stack > ul > li:first-child {
+        margin-right: 0; }
+      .panel-stack > ul > li > button.active, .panel-stack > ul > li > button.active:hover, .panel-stack > ul > li > button.active:active, .panel-stack > ul > li > button.active:focus {
+        background-color: #fefefe;
+        color: #666; }
+  .panel-stack > .panel, .window.panel-stack > .window-content {
+    margin: 0; }
+
+.window {
+  display: grid;
+  box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.05);
+  margin: 10px; }
+  .window > .window-title {
     padding: 10px;
     height: 30px;
     background-color: #999;
     color: #fefefe; }
-  window > .window-content {
-    padding: 20px;
-    width: 100%;
-    height: auto;
-    grid-gap: 10px;
-    background-color: #fefefe; }
+  .window > .window-content {
+    margin: 0;
+    box-shadow: none; }
 
 .popup {
   position: fixed;
@@ -430,15 +474,52 @@ window {
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5); }
 
-#login {
-  align-self: center; }
-  #login > .window-content {
-    flex-direction: column; }
-    #login > .window-content > * {
+#loginPageContainer {
+  flex-direction: column;
+  align-self: center;
+  top: 50%;
+  transform: translateY(calc(-50% - 5px)); }
+  #loginPageContainer header {
+    margin-bottom: 0; }
+
+#loginWindow {
+  align-self: center;
+  margin: 20px; }
+  #loginWindow > .window-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+    #loginWindow > .window-content > * {
       margin: 0 auto; }
-    #login > .window-content > label {
-      margin: 10px auto; }
-    #login > .window-content > input[name=username] {
+      #loginWindow > .window-content > *:not(:first-child):not(:last-child) {
+        margin: 20px auto; }
+    #loginWindow > .window-content > input[name=username] {
       width: 250px; }
+
+#mainPanelStack > .stack #proflePanelButton {
+  margin-left: 20px; }
+
+#profileContainer {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr; }
+  #profileContainer > .invisible-container {
+    flex-direction: column; }
+    #profileContainer > .invisible-container:nth-child(1) {
+      justify-self: flex-start; }
+    #profileContainer > .invisible-container:nth-child(2) {
+      justify-self: center;
+      text-align: center; }
+      #profileContainer > .invisible-container:nth-child(2) > * {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10px; }
+        #profileContainer > .invisible-container:nth-child(2) > *:first-child {
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+          border-bottom: 1px solid; }
+    #profileContainer > .invisible-container:nth-child(3) {
+      justify-self: flex-end;
+      text-align: right; }
 
 /*# sourceMappingURL=main.css.map */
