@@ -222,7 +222,7 @@ footer {
 header {
 	position: relative;
 
-	margin: 10px 20px -40px 20px;
+	margin: 10px 20px 0px 20px;
 	& > #appTitle {
 		position: absolute;
 		top: 50%;
@@ -265,6 +265,8 @@ header {
 			&:first-child { margin-right: 0; }
 
 			& > button {
+				height: calc(2em + 1px);
+
 				&.active {
 					&, &:hover, &:active, &:focus {
 						background-color: $light-lightest;
@@ -303,6 +305,137 @@ header {
 	}
 }
 
+.table {
+	@include flex;
+
+	width: 100%;
+	flex-direction: column;
+	overflow: hidden;
+	overflow-y: auto;
+
+	& > .row {
+		@include grid;
+
+		width: 100%;
+		grid-auto-columns: 1fr;
+		grid-gap: 2px;
+
+		&:not(:last-child) {
+			margin-bottom: 2px;
+		}
+
+		&:nth-child(2n) {
+			& > * {
+				background-color: $light-light;
+			}
+		}
+
+		&:nth-child(2n - 1) {
+			&:not(.header) > * {
+				background-color: $light-neutral;
+			}
+		}
+
+		& > * {
+			grid-row: 1;
+			padding: 2px 4px;
+		}
+	}
+
+	& > .header {
+		@include border(1px, $light-neutral);
+
+		z-index: 100;
+
+		border-top: none;
+		border-left: none;
+		border-right: none;
+	}
+}
+
+.tasks-table {
+	& > .row {
+
+		height: 2.6em;
+		grid-template-columns: 1.5em 4fr 3fr 3fr 1fr 3fr 3fr !important;
+
+		cursor: default;
+
+		&:not(.header) {
+			& > * {
+				background-color: $light-neutral !important;
+			}
+		}
+
+		& > * {
+			padding: .8em 1.5em;
+		}
+
+		/*&.header {
+			position: absolute;
+		}
+
+		&:nth-child(2) {
+			margin-top: calc(3.3em + 0px) !important;
+		}*/
+
+		&:not(:last-child) {
+			margin-bottom: .7em;
+		}
+
+		& > .priority {
+			padding: 0 !important;
+			
+			background-color: transparent !important;
+
+			& > div {
+				position: absolute;
+				height: 100%;
+				top: 0;
+				right: -2px;
+			}
+
+			& > .low {
+				width: calc(.5em + 2px);
+				
+				background-color: $light-priority-1 !important;
+			}
+			& > .medium {
+				width: calc(1em + 2px);
+				
+				background-color: $light-priority-2 !important;
+			}
+			& > .high {
+				width: calc(1.5em + 2px);
+				
+				background-color: $light-priority-3 !important;
+			}
+		}
+
+		& > .subtasks {
+			text-align: center;
+		}
+
+		&:hover:not(.header) {
+			& > *:not(.priority) {
+				background-color: $light-dark !important;
+				color: $light-lightest;
+			}
+		}
+
+		&:active:not(.header), &:focus:not(.header) {
+			& > *:not(.priority) {
+				background-color: $light-darkest !important;
+				color: $light-lightest;
+			}
+		}
+	}
+
+	& > .header {
+
+	}
+}
+
 .popup {
 	position: fixed;
 	width: 100%;
@@ -318,8 +451,6 @@ header {
 	align-self: center;
 	top: 50%;
 	transform: translateY(calc(-50% - 5px));
-
-	header { margin-bottom: 0; }
 }
 
 #loginWindow {
@@ -346,8 +477,10 @@ header {
 }
 
 #mainPanelStack {
+	margin-top: -20px;
+
 	& > .stack {
-		& #proflePanelButton {
+		& #profilePanelButton {
 			margin-left: 20px;
 		}
 	}

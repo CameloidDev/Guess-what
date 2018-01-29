@@ -13,14 +13,18 @@ htmlBuilder.jsProjectTracker.window = function (
 	id = ""
 	) {
 
+	var windowTitle = "\n\t\t" + title + "\n\t";
+	var windowId = id == "" ? "" : " id=\"" + id + "\"";
+	var windowContent = content == "" ? "" : "\n\t\t" + content + "\n\t";
+
 	var part =
-	"<div class=\"window\" id=\""+id+"\">\n" +
+	"<div class=\"window\"" + windowId + ">\n" +
 		"\t<span class=\"window-title\">" +
-		title +
+		windowTitle +
 		"</span>\n" +
-		"\t<div class=\"window-content\">\n" +
-		content + "\n" +
-		"\t</div>\n" +
+		"\t<div class=\"window-content\">" +
+		windowContent +
+		"</div>\n" +
 	"</div>";
 
 	return part;
@@ -43,6 +47,86 @@ htmlBuilder.jsProjectTracker.checkbox = function (
 
 	return part;
 }
+
+htmlBuilder.jsProjectTracker.panel = function (options) {
+
+	var panelId = options["id"] == "" ? "" : " id=\"" + options["id"] + "\"";
+	var panelContent = options["content"] == "" ? "" : "\n\t\t" + options["content"] + "\n\t";
+
+	var part =
+	"<div class=\"panel\"" + panelId + ">" +
+		panelContent +
+	"</div>";
+
+	return part;
+}
+
+/*	Settings properties:
+
+		*buttons					string array,
+		*activeButtonIndex			int,
+		**buttonIds					string array,
+		panelStackId				string,
+		stackId						string,
+		panelId						string,
+		content						string
+
+	* - required
+	** - must be the same length as "buttons" property,
+		input "" for buttons without IDs
+*/
+htmlBuilder.jsProjectTracker.panelStack = function (settings = null) {
+
+	if ( settings == null || settings["buttons"] == undefined || settings["buttons"].length < 1 ) {
+		return "";
+	}
+
+	var buttonsArr  = settings["buttons"] == undefined ? "" : settings["buttons"];
+	var buttonIdsArr = settings["buttonIds"] == undefined ? "" : settings["buttonIds"];
+
+	var panelStackId = settings["panelStackId"] == undefined ? "" : " id=\"" + settings["panelStackId"] + "\"";
+	var stackId = settings["stackId"] == undefined ? "" : " id=\"" + settings["stackId"] + "\"";
+	var panelId = settings["panelId"] == undefined ? "" : settings["panelId"];
+
+	var content = settings["content"] == undefined ? "" : "\t" + settings["content"] + "\n";
+
+	var buttonIds = [];
+
+	for (var i = 0; i < buttonIdsArr.length; i++) {
+		
+		if ( buttonIdsArr[i] != "" ) {
+			buttonIds.push(" id=\"" + buttonIdsArr[i] + "\"");
+			break;
+		}
+		
+		buttonIds.push("");
+	}
+
+	var buttons = "";
+
+	for (var i = 0; i < buttonsArr.length; i++) {
+
+		buttons += i == 0 ? "" : "\n";
+
+		var cls = i == settings["activeButtonIndex"] ? " class=\"active\"" : "";
+
+		buttons += "\t\t<li>" +
+		htmlBuilder.parts.button(buttonsArr[i], cls + buttonIds[i]) +
+		"</li>";
+	}
+
+	buttons = "\t<ul class=\"stack\"" + stackId + ">\n" + buttons + "\n\t</ul>";
+
+	var part =
+	"<div class=\"panel-stack\"" + panelStackId + ">\n" +
+		buttons +
+		"\t" + htmlBuilder.jsProjectTracker.panel({content: content, id: panelId}) + "\n" +
+	"</div>";
+
+	return part;
+}
+
+
 
 
 

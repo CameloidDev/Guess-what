@@ -283,7 +283,7 @@ html {
 body {
   margin: 0; }
 
-div, body, button, button:hover, button:active, button:focus, input, input:hover, input:active, input:focus, .invisible-container, .page-container, footer, .panel, .window > .window-content, .panel-stack > ul, .window, .window > .window-title, #loginWindow > .window-content, #profileContainer {
+div, body, button, button:hover, button:active, button:focus, input, input:hover, input:active, input:focus, .invisible-container, .page-container, footer, .panel, .window > .window-content, .panel-stack > ul, .window, .window > .window-title, .table, .table > .row, #loginWindow > .window-content, #profileContainer {
   box-sizing: border-box;
   position: relative; }
 
@@ -419,7 +419,7 @@ footer {
 
 header {
   position: relative;
-  margin: 10px 20px -40px 20px; }
+  margin: 10px 20px 0px 20px; }
   header > #appTitle {
     position: absolute;
     top: 50%;
@@ -449,9 +449,11 @@ header {
       margin: 0 2px; }
       .panel-stack > ul > li:first-child {
         margin-right: 0; }
-      .panel-stack > ul > li > button.active, .panel-stack > ul > li > button.active:hover, .panel-stack > ul > li > button.active:active, .panel-stack > ul > li > button.active:focus {
-        background-color: #fefefe;
-        color: #666; }
+      .panel-stack > ul > li > button {
+        height: calc(2em + 1px); }
+        .panel-stack > ul > li > button.active, .panel-stack > ul > li > button.active:hover, .panel-stack > ul > li > button.active:active, .panel-stack > ul > li > button.active:focus {
+          background-color: #fefefe;
+          color: #666; }
   .panel-stack > .panel, .window.panel-stack > .window-content {
     margin: 0; }
 
@@ -468,6 +470,79 @@ header {
     margin: 0;
     box-shadow: none; }
 
+.table {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  overflow-y: auto; }
+  .table > .row {
+    display: grid;
+    width: 100%;
+    grid-auto-columns: 1fr;
+    grid-gap: 2px; }
+    .table > .row:not(:last-child) {
+      margin-bottom: 2px; }
+    .table > .row:nth-child(2n) > * {
+      background-color: #e5e5e5; }
+    .table > .row:nth-child(2n - 1):not(.header) > * {
+      background-color: #ccc; }
+    .table > .row > * {
+      grid-row: 1;
+      padding: 2px 4px; }
+  .table > .header {
+    -webkit-border: solid 1px #ccc;
+    -moz-border: solid 1px #ccc;
+    -ms-border: solid 1px #ccc;
+    border: solid 1px #ccc;
+    z-index: 100;
+    border-top: none;
+    border-left: none;
+    border-right: none; }
+
+.tasks-table > .row {
+  height: 2.6em;
+  grid-template-columns: 1.5em 4fr 3fr 3fr 1fr 3fr 3fr !important;
+  cursor: default;
+  		/*&.header {
+  			position: absolute;
+  		}
+  
+  		&:nth-child(2) {
+  			margin-top: calc(3.3em + 0px) !important;
+  		}*/ }
+  .tasks-table > .row:not(.header) > * {
+    background-color: #ccc !important; }
+  .tasks-table > .row > * {
+    padding: .8em 1.5em; }
+  .tasks-table > .row:not(:last-child) {
+    margin-bottom: .7em; }
+  .tasks-table > .row > .priority {
+    padding: 0 !important;
+    background-color: transparent !important; }
+    .tasks-table > .row > .priority > div, .tasks-table > .row > .priority > body, .tasks-table > .row > .priority > button, .tasks-table > .row > .priority > input, .tasks-table > .row > .priority > .invisible-container, .tasks-table > .row > .priority > .page-container, .tasks-table > .row > .priority > footer, .tasks-table > .row > .priority > .panel, .tasks-table > .row > .window.priority > .window-content, .tasks-table > .row > .panel-stack.priority > ul, .tasks-table > .row > .priority > .window, .tasks-table > .row > .window.priority > .window-title, .tasks-table > .row > .priority > .table, .tasks-table > .row > .table.priority > .row, .tasks-table > .row > #loginWindow.priority > .window-content, .tasks-table > .row > .priority > #profileContainer {
+      position: absolute;
+      height: 100%;
+      top: 0;
+      right: -2px; }
+    .tasks-table > .row > .priority > .low {
+      width: calc(.5em + 2px);
+      background-color: #f8c30f !important; }
+    .tasks-table > .row > .priority > .medium {
+      width: calc(1em + 2px);
+      background-color: #f77f10 !important; }
+    .tasks-table > .row > .priority > .high {
+      width: calc(1.5em + 2px);
+      background-color: #c91109 !important; }
+  .tasks-table > .row > .subtasks {
+    text-align: center; }
+  .tasks-table > .row:hover:not(.header) > *:not(.priority) {
+    background-color: #999 !important;
+    color: #fefefe; }
+  .tasks-table > .row:active:not(.header) > *:not(.priority), .tasks-table > .row:focus:not(.header) > *:not(.priority) {
+    background-color: #666 !important;
+    color: #fefefe; }
+
 .popup {
   position: fixed;
   width: 100%;
@@ -479,8 +554,6 @@ header {
   align-self: center;
   top: 50%;
   transform: translateY(calc(-50% - 5px)); }
-  #loginPageContainer header {
-    margin-bottom: 0; }
 
 #loginWindow {
   align-self: center;
@@ -496,8 +569,10 @@ header {
     #loginWindow > .window-content > input[name=username] {
       width: 250px; }
 
-#mainPanelStack > .stack #proflePanelButton {
-  margin-left: 20px; }
+#mainPanelStack {
+  margin-top: -20px; }
+  #mainPanelStack > .stack #profilePanelButton {
+    margin-left: 20px; }
 
 #profileContainer {
   display: grid;

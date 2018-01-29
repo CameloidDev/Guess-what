@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="description" content="Project Tracker app by Eulabeia Web Studio.">
-		<meta name="version" content="2018.1.29.0">
+		<meta name="version" content="2018.1.29.1">
 		<meta name="keywords" content="JAVASCRIPT, app">
 		<meta name="author" content="Eulabeia Web Studio">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,32 +30,58 @@
 		<div class="page-container" id="pageContainer">
 			<header>
 				<h2 id="appTitle">JS Project Tracker</h2>
-				<h1 id="title">Profile</h1>
+				<h1 id="title">Tasks</h1>
 			</header>
 			<div class="panel-stack" id="mainPanelStack">
 				<ul class="stack">
-					<li><button class="active" id="proflePanelButton">
+					<li><button id="profilePanelButton">
 						Profile<i class="material-icons">person</i>
 					</button></li>
 					<li><button id="activityPanelButton">Project activity</button></li>
 					<li><button id="usersPanelButton">User list</button></li>
-					<li><button id="tasksPanelButton">Task list</button></li>
+					<li><button class="active" id="tasksPanelButton">Task list</button></li>
 				</ul>
 				<div class="panel" id="mainPanel">
-					<div class="invisible-container" id="profileContainer">
-						<div class="invisible-container">
-							<p>Role: Backend developer</p>
-							<p>Email: dadnimir.pecur@eulabeia.com</p>
+
+					<div class="table tasks-table" id="tasksTable">
+						<div class="row header">
+							<div class="priority"></div>
+							<div class="name"><span>Task name</span></div>
+							<div class="user"><span>Assigned user</span></div>
+							<div class="status"><span>Status</span></div>
+							<div class="subtasks"><span>Subtasks</span></div>
+							<div class="created"><span>Date created</span></div>
+							<div class="closed"><span>Date closed</span></div>
 						</div>
-						<div class="invisible-container">
-							<h1>SillyMeWee</h1>
-							<button onclick="app.signOut()">Sign out</button>
+						<div class="row">
+							<div class="priority"><div class="high"></div></div>
+							<div class="name"><span>Urgent task</span></div>
+							<div class="user"><span>SillyMeWee</span></div>
+							<div class="status"><span>In progress</span></div>
+							<div class="subtasks"><span>10</span></div>
+							<div class="created"><span>13.1.2018</span></div>
+							<div class="closed"><span>--</span></div>
 						</div>
-						<div class="invisible-container">
-							<p>Registration date: 13.1.2018</p>
-							<p>Last login: 13.1.2018</p>
+						<div class="row">
+							<div class="priority"><div class="medium"></div></div>
+							<div class="name"><span>Medium priority task</span></div>
+							<div class="user"><span>SillyMeWee</span></div>
+							<div class="status"><span>Open and waiting</span></div>
+							<div class="subtasks"><span>3</span></div>
+							<div class="created"><span>13.1.2018</span></div>
+							<div class="closed"><span>--</span></div>
+						</div>
+						<div class="row">
+							<div class="priority"><div class="low"></div></div>
+							<div class="name"><span>Not so important task</span></div>
+							<div class="user"><span>SillyMeWee</span></div>
+							<div class="status"><span>Abandoned</span></div>
+							<div class="subtasks"><span>0</span></div>
+							<div class="created"><span>13.1.2018</span></div>
+							<div class="closed"><span>13.1.2018</span></div>
 						</div>
 					</div>
+
 				</div>
 			</div>
 			<footer>
@@ -76,15 +102,15 @@
 		<script src="assets/js/jquery/3.2.1/jquery.min.js"></script>
 
 		<!-- unique hash library -->
-		<script type="text/javascript" src="assets/js/htmlBuilder/htmlBuilder.js"></script>
+		<!--script type="text/javascript" src="assets/js/htmlBuilder/htmlBuilder.js"></script>
 		<script type="text/javascript" src="assets/js/htmlBuilder/base parts/basic.js"></script>
-		<script type="text/javascript" src="assets/js/htmlBuilder/style parts/JS Project Tracker.style.js"></script>
+		<script type="text/javascript" src="assets/js/htmlBuilder/style parts/JS Project Tracker.style.js"></script-->
 
 		<!-- app -->
-		<script type="text/javascript" src="assets/js/app/savingAndLoading.js"></script>
-		<!--script type="text/javascript" src="assets/js/app/task.js"></script>
-		<script type="text/javascript" src="assets/js/app/userProfile.js"></script-->
-		<script type="text/javascript" src="assets/js/app/dynamicBuilder.js"></script>
+		<!--script type="text/javascript" src="assets/js/app/savingAndLoading.js"></script>
+		<script type="text/javascript" src="assets/js/app/task.js"></script>
+		<script type="text/javascript" src="assets/js/app/userProfile.js"></script>
+		<script type="text/javascript" src="assets/js/app/dynamicBuilder.js"></script-->
 
 <!--	<script type="text/javascript" src="assets/js/main.js"></script-->
 		
