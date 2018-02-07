@@ -16,14 +16,14 @@
     font-family: "Lato Regular";
     font-style: normal;
     font-weight: normal;
-    src: url("../../media/fonts/lato/Lato-Regular.ttf") format("truetype");
+    src: url("../media/fonts/lato/Lato-Regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Lato Regular";
     font-style: italic;
     font-weight: normal;
-    src: url("../../media/fonts/lato/Lato-Italic.ttf") format("truetype");
+    src: url("../media/fonts/lato/Lato-Italic.ttf") format("truetype");
 }
 
 $text-font: "Lato Regular", sans-serif;
@@ -32,14 +32,14 @@ $text-font: "Lato Regular", sans-serif;
     font-family: "Sinkin Sans 400";
     font-style: normal;
     font-weight: normal;
-    src: url("../../media/fonts/sinkin-sans/SinkinSans-400Regular.otf") format("otf");
+    src: url("../media/fonts/sinkin-sans/SinkinSans-400Regular.otf") format("otf");
 }
 
 @font-face {
     font-family: "Sinkin Sans 400";
     font-style: italic;
     font-weight: normal;
-    src: url("../../media/fonts/sinkin-sans/SinkinSans-400Italic.otf") format("otf");
+    src: url("../media/fonts/sinkin-sans/SinkinSans-400Italic.otf") format("otf");
 }
 
 $display-font: "Sinkin Sans 400", sans-serif;
@@ -48,20 +48,82 @@ $display-font: "Sinkin Sans 400", sans-serif;
 
 // light-theme
 
-$light-darkest: #666;
-$light-dark: #999;
-$light-neutral: #ccc;
-$light-light: #e5e5e5;
-$light-lightest: #fefefe;
+$bw-5:      #F9F9F9;    // actually #F1F1F2 according to Illustrator, but adjusted for contrast in browsers
+$bw-10:     #E6E7E8;
+$bw-20:     #D1D2D4;
+$bw-30:     #BBBDC0;
+$bw-40:     #A7A9AB;
+$bw-50:     #939597;
+$bw-60:     #808284;
+$bw-70:     #6D6E70;
+$bw-80:     #58585B;
+$bw-90:     #404041;
+$bw-100:    #231F20;
 
-$light-text: $light-darkest;
+$priority-1: #f8c30f;
+$priority-2: #f77f10;
+$priority-3: #c91109;
 
-$light-priority-1: #f8c30f;
-$light-priority-low: $light-priority-1;
-$light-priority-2: #f77f10;
-$light-priority-medium: $light-priority-2;
-$light-priority-3: #c91109;
-$light-priority-high: $light-priority-3;
+// light color scheme
+
+$light-panel-bg: $bw-5;
+$light-win-title-bg: $bw-50;
+$light-win-title-text: $bw-5;
+$light-table-bg-even: $bw-10;
+$light-table-bg-odd: $bw-20;
+
+$light-task-bg: $bw-80;
+$light-task-text: $bw-5;
+
+$light-btn-bg: $bw-20;
+$light-btn-text: $bw-80;
+$light-btn-bg-hover: $bw-50;
+$light-btn-text-hover: $bw-5;
+$light-btn-bg-active: $bw-70;
+$light-btn-text-active: $bw-5;
+
+$light-inp-bg: $light-btn-bg;
+$light-inp-text: $light-btn-text;
+$light-inp-bg-hover: $light-btn-bg-hover;
+$light-inp-text-hover: $light-btn-text-hover;
+$light-inp-bg-active: $light-btn-bg-active;
+$light-inp-text-active: $light-btn-text-active;
+
+$light-placehld: $bw-50;
+$light-placehld-hover: $bw-20;
+$light-placehld-active: $light-placehld-hover;
+
+$light-app-bg: $bw-10;
+$light-text: $bw-80;
+
+// dark color scheme
+
+$dark-panel-bg: $bw-80;
+$dark-win-title-bg: $bw-50;
+$dark-win-title-text: $bw-80;
+$dark-table-bg-even: $bw-90;
+$dark-table-bg-odd: $bw-80;
+
+$dark-btn-bg: $bw-80;
+$dark-btn-text: $bw-20;
+$dark-btn-bg-hover: $bw-50;
+$dark-btn-text-hover: $bw-80;
+$dark-btn-bg-active: $bw-30;
+$dark-btn-text-active: $bw-80;
+
+$dark-inp-bg: $dark-btn-bg;
+$dark-inp-text: $dark-btn-text;
+$dark-inp-bg-hover: $dark-btn-bg-hover;
+$dark-inp-text-hover: $dark-btn-text-hover;
+$dark-inp-bg-active: $dark-btn-bg-active;
+$dark-inp-text-active: $dark-btn-text-active;
+
+$dark-placehld: $bw-80;
+$dark-placehld-hover: $dark-placehld;
+$dark-placehld-active: $dark-placehld;
+
+$dark-app-bg: $bw-90;
+$dark-text: $bw-20;
 
 // 3. Media query setup
 

@@ -48,6 +48,24 @@ htmlBuilder.jsProjectTracker.checkbox = function (
 	return part;
 }
 
+htmlBuilder.jsProjectTracker.radioButton = function (
+	text = "Radio button option",
+	id = ""
+	) {
+
+	if (id == "") {
+		do {
+			id = Math.random().toString(36).substring(2, 15);
+		} while (document.getElementById(id) != null);
+	}
+
+	var part =
+	"<input type=\"radio\" id=\"" + id + "\">\n" +
+	"<label type=\"radio\" for=\"" + id + "\">" + text + "</label>";
+
+	return part;
+}
+
 htmlBuilder.jsProjectTracker.panel = function (options) {
 
 	var panelId = options["id"] == "" ? "" : " id=\"" + options["id"] + "\"";

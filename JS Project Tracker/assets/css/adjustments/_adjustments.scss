@@ -1,19 +1,19 @@
 html {
-	//position: relative;
-	//box-sizing: border-box;
 	width: 100%;
 
-	background-color: $light-light;
+	background-color: $light-app-bg;
 	color: $light-text;
 	font-family: $text-font;
-	font-size: 12px;
-	line-height: 12px;
+	font-size: 62.5%;
+	line-height: 62.5%;
 }
 
 body {
 	@extend div;
 
 	margin: 0;
+	font-size: 1.2em;
+	line-height: 1em;
 }
 
 div {
@@ -37,44 +37,37 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 
 	font-family: $display-font;
+	line-height: 1em;
 }
 h1 {
-	font-size: 36px;
-	line-height: 36px;
+	font-size: 3.4em;
 }
 h2 {
-	font-size: 18px;
-	line-height: 18px;
+	font-size: 1.8em;
 }
 h3 {
-	font-size: 14px;
-	line-height: 14px;
+	font-size: 1.4em;
 }
 h4 {
-	font-size: 12px;
-	line-height: 12px;
+	font-size: 1.2em;
 }
 h5 {
-	font-size: 10px;
-	line-height: 10px;
+	font-size: 1em;
 }
 h6 {
-	font-size: 8px;
-	line-height: 8px;
+	font-size: .8em;
 }
 
 small {
-	font-family: $text-font;
+	font-family: inherit;
 	&:not(.tiny) { font-size: .75em; }
 	&.tiny { font-size: .5em; }
 
 	color: $light-text;
 }
 
-button, input {
-	&, &:hover, &:active, &:focus {
-		@extend div;
-	}
+big {
+	font-size: 12em;
 }
 
 button {
@@ -84,8 +77,8 @@ button {
 		padding: .5em 1.2em;
 		width: fit-content;
 
-		background-color: $light-neutral;
-		color: $light-text;
+		background-color: $light-btn-bg;
+		color: $light-btn-text;
 		border: none;
 		border-radius: 0;
 		outline: none;
@@ -93,13 +86,13 @@ button {
 	}
 
 	&:hover {
-		background-color: $light-dark;
-		color: $light-lightest; 
+		background-color: $light-btn-bg-hover;
+		color: $light-btn-text-hover; 
 	}
 
 	&:active {
-		background-color: $light-darkest;
-		color: $light-lightest; 
+		background-color: $light-btn-bg-active;
+		color: $light-btn-text-active;
 	}
 }
 
@@ -110,35 +103,36 @@ input {
 		padding: .3em .5em;
 		width: fit-content;
 
-		background-color: $light-neutral;
-		color: $light-text;
+		background-color: $light-inp-bg;
+		color: $light-inp-text;
 		border: none;
 		border-radius: 0;
 		outline: none;
 		font-family: $display-font;
 	}
 
-	&:focus, &:active {
-		background-color: $light-darkest;
-		color: $light-lightest;
-		&::placeholder {
-			color: $light-neutral;
-		}
-	}
-
-	&:not(:focus):not(active):hover{
-		background-color: $light-dark;
-		color: $light-lightest;
-		&::placeholder {
-			color: $light-neutral;
-		}
-	}
-
 	&::placeholder {
-		color: $light-dark;
+		color: $light-placehld;
 		font-family: $text-font;
 		font-style: italic;
 	}
+
+	&:not(:focus):not(:active):hover{
+		background-color: $light-inp-bg-hover;
+		color: $light-inp-text-hover;
+		&::placeholder {
+			color: $light-placehld-hover;
+		}
+	}
+
+	&:focus, &:active {
+		background-color: $light-inp-bg-active;
+		color: $light-inp-text-active;
+		&::placeholder {
+			color: $light-placehld-active;
+		}
+	}
+
 	&[type=checkbox],
 	&[type=radio] {
 		display: none;
@@ -148,7 +142,7 @@ input {
 			height: 7px;
 			transform: translate(-21px, -9px);
 
-			background-color: $light-darkest;
+			background-color: $light-inp-bg-active;
 		}
 	}
 }
@@ -166,11 +160,11 @@ label[type=radio] {
 		transform: translate(-25px, -1px);
 
 		content: "";
-		background-color: $light-neutral;
+		background-color: $light-inp-bg;
 	}
 
 	&:hover:before {
-		background-color: $light-dark;
+		background-color: $light-inp-bg-hover;
 	}
 
 	&:after {
@@ -244,7 +238,7 @@ header {
 	height: auto;
 	grid-gap: 10px;
 
-	background-color: $light-lightest;
+	background-color: $light-panel-bg;
 }
 
 .panel-stack {
@@ -269,7 +263,7 @@ header {
 
 				&.active {
 					&, &:hover, &:active, &:focus {
-						background-color: $light-lightest;
+						background-color: $light-panel-bg;
 						color: $light-text;
 					}
 				}
@@ -293,8 +287,8 @@ header {
 		padding: 10px;
 		height: 30px;
 
-		background-color: $light-dark;
-		color: $light-lightest;
+		background-color: $light-win-title-bg;
+		color: $light-win-title-text;
 	}
 
 	& > .window-content {
@@ -326,13 +320,13 @@ header {
 
 		&:nth-child(2n) {
 			& > * {
-				background-color: $light-light;
+				background-color: $light-table-bg-even;
 			}
 		}
 
 		&:nth-child(2n - 1) {
 			&:not(.header) > * {
-				background-color: $light-neutral;
+				background-color: $light-table-bg-odd;
 			}
 		}
 
@@ -343,7 +337,7 @@ header {
 	}
 
 	& > .header {
-		@include border(1px, $light-neutral);
+		@include border(1px, $light-table-bg-odd);
 
 		z-index: 100;
 
@@ -355,15 +349,17 @@ header {
 
 .tasks-table {
 	& > .row {
-
-		height: 2.6em;
-		grid-template-columns: 1.5em 4fr 3fr 3fr 1fr 3fr 3fr !important;
+		grid-template-columns: 1.5em 4fr 3fr 3fr 1fr 3fr 3fr;
 
 		cursor: default;
 
+		& > *:not(.task) {
+			height: 2.6em;
+		}
+
 		&:not(.header) {
 			& > * {
-				background-color: $light-neutral !important;
+				background-color: $light-table-bg-odd;
 			}
 		}
 
@@ -371,19 +367,13 @@ header {
 			padding: .8em 1.5em;
 		}
 
-		/*&.header {
-			position: absolute;
-		}
-
-		&:nth-child(2) {
-			margin-top: calc(3.3em + 0px) !important;
-		}*/
-
 		&:not(:last-child) {
 			margin-bottom: .7em;
 		}
 
 		& > .priority {
+			grid-column: 1;
+			height: 100%;
 			padding: 0 !important;
 			
 			background-color: transparent !important;
@@ -398,36 +388,54 @@ header {
 			& > .low {
 				width: calc(.5em + 2px);
 				
-				background-color: $light-priority-1 !important;
+				background-color: $priority-1;
 			}
 			& > .medium {
 				width: calc(1em + 2px);
 				
-				background-color: $light-priority-2 !important;
+				background-color: $priority-2;
 			}
 			& > .high {
 				width: calc(1.5em + 2px);
 				
-				background-color: $light-priority-3 !important;
+				background-color: $priority-3;
 			}
 		}
 
+		& > .name { grid-column: 2; }
+
+		& > .user { grid-column: 3; }
+
+		& > .status { grid-column: 4; }
+
 		& > .subtasks {
+			grid-column: 5;
 			text-align: center;
 		}
 
+		& > .created { grid-column: 6; }
+
+		& > .closed { grid-column: 7; }
+
 		&:hover:not(.header) {
-			& > *:not(.priority) {
-				background-color: $light-dark !important;
-				color: $light-lightest;
+			& > *:not(.priority):not(.task) {
+				background-color: $light-btn-bg-hover !important;
+				color: $light-btn-text-hover;
 			}
 		}
 
 		&:active:not(.header), &:focus:not(.header) {
-			& > *:not(.priority) {
-				background-color: $light-darkest !important;
-				color: $light-lightest;
+			& > *:not(.priority):not(.task) {
+				background-color: $light-btn-bg-active !important;
+				color: $light-btn-text-active;
 			}
+		}
+
+		& > .task {
+			grid-column: 2/8;
+
+			background-color: $light-task-bg;
+			color: $light-task-text;
 		}
 	}
 
